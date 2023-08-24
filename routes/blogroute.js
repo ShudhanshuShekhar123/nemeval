@@ -41,7 +41,7 @@ blogroute.get("/blogs", authmiddleware, async (req,res)=>{
              
              else{
        
-                   let allblogs =  await blogmodal.find({ creator :req.userid})
+                   let allblogs =  await blogmodal.find({})
                    //  blog.populate("creator")
                    // console.log(req.userid)
                   res.status(200).send(allblogs)
