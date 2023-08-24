@@ -2,15 +2,18 @@ const express = require("express")
 const app = express()
 const mongoose = require("mongoose")
 require("dotenv").config()
-const { signuprouter } = require("./routes/Signuproute")
+const { userroute } = require("./routes/Userroute")
 const cors = require("cors")
+const { blogroute } = require("./routes/blogroute")
 
 
 app.use(express.json())
 app.use(cors({ origin: "*" }))
 
 
-app.use("/masaihospital", signuprouter)
+app.use("/api", userroute)
+app.use("/api", blogroute)
+
 
 app.get('/', (req, res) => {
     res.send('Welcome to the Homepage !')
